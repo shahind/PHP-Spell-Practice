@@ -8,3 +8,5 @@ https://translate.google.com/translate_tts?ie=UTF-8&client=gtx&q=DESIRED_WORD&tl
 This url will return the speech sound file. This script uses `en-uk` you can simply use your desired language(it should be suppored by Google).
 
 demo: https://spell.shahinsoft.ir
+
+![screenshot](https://raw.githubusercontent.com/shahind/PHP-Spell-Practice/main/screenshot.jpg)
