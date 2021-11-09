@@ -15,7 +15,7 @@ if(!$_SESSION['word']){
 
 //get the audio
 $txt=rawurlencode($word);
-$audio=file_get_contents('https://translate.google.com/translate_tts?ie=UTF-8&client=gtx&q='.$txt.'&tl=en-US');
+$audio=file_get_contents('https://translate.google.com/translate_tts?ie=UTF-8&client=gtx&q='.$txt.'&tl=en-UK');
 $speech='<audio src="data:audio/mpeg;base64,'.base64_encode($audio).'" autoplay controls></audio>';
 
 if($_POST){
