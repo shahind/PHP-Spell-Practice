@@ -12,11 +12,15 @@ if(!$_SESSION['word']){
 }else{
     $word = $_SESSION['word'];
 }
-
+//connect to google
+function text_to_speech( $text ) { 
+    $audio=file_get_contents('https://translate.google.com/translate_tts?ie=UTF-8&client=gtx&q='.$text.'&tl=en-UK');
+    $speech='<audio src="data:audio/mpeg;base64,'.base64_encode($audio).'" autoplay controls></audio>';
+    return $speech;
+} 
 //get the audio
 $txt=rawurlencode($word);
-$audio=file_get_contents('https://translate.google.com/translate_tts?ie=UTF-8&client=gtx&q='.$txt.'&tl=en-UK');
-$speech='<audio src="data:audio/mpeg;base64,'.base64_encode($audio).'" autoplay controls></audio>';
+$speech = text_to_speech($word);
 
 if($_POST){
     if(isset($_POST['word']) && $_POST['word']!=''){
@@ -29,8 +33,8 @@ if($_POST){
             
             //get the audio
             $txt=rawurlencode($word);
-            $audio=file_get_contents('https://translate.google.com/translate_tts?ie=UTF-8&client=gtx&q='.$txt.'&tl=en-UK');
-            $speech='<audio src="data:audio/mpeg;base64,'.base64_encode($audio).'" autoplay controls></audio>';
+            $speech = text_to_speech($word);
+
         }else{
             $_SESSION['error'] = 'Incorrect! Try Again';
         }
